@@ -7,6 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{enumitem}
+\usepackage{xcolor}
 
 % --- Header and Footer Setup ---
 \pagestyle{fancy}
@@ -46,16 +47,24 @@
 \begin{enumerate}[label=(\alph*)]
     \item (4 points) Identify the real numbers at which $f(x)$ is discontinuous.
     \textit{Hint: You should justify why $f(x)$ is discontinuous at certain values of x and why $f(x)$ is continuous everywhere else.}
-    
-    \vspace{4cm}
+
+    {\color{blue}\textbf{Solution.} On the region $x>\pi$, $f(x)=\sin x$ is continuous. On $x\leq\pi$, $f(x)=x-\pi$ is a polynomial and is likewise continuous. The only potential issue is at $x=\pi$, where the rule switches. We compute
+    \[
+        \lim_{x\to \pi^-}f(x)=\lim_{x\to\pi^-}(x-\pi)=0,\qquad \lim_{x\to \pi^+}f(x)=\lim_{x\to\pi^+}\sin x=\sin\pi=0,
+    \]
+    and the actual value $f(\pi)=\pi-\pi=0$. Because the left- and right-hand limits agree with $f(\pi)$, the function is continuous at $x=\pi$. Therefore $f$ is continuous for every real number, so it has \textbf{no discontinuities}.}
     
     \item (4 points) Identify the horizontal and vertical asymptotes of $f(x)$.
-    
-    \vspace{4cm}
+
+    {\color{blue}\textbf{Solution.} For $x>\pi$ the function equals $\sin x$, which oscillates between $-1$ and $1$ forever without approaching a single value, so it has \emph{no horizontal asymptote} as $x\to\infty$. For $x\leq\pi$ the expression is $x-\pi$, a line whose magnitude grows without bound as $x\to -\infty$, so it also has no horizontal asymptote in that direction. Because each piece is defined and finite for every $x$ in its domain, $f$ never diverges to $\pm\infty$ at a finite $x$-value, hence there are \textbf{no vertical asymptotes either}.}
 
     \item (4 points) What does the Mean Value Theorem say about $f(x)$ on the interval $[2\pi, 3\pi]$?
-    
-    \vspace{4cm}
+
+    {\color{blue}\textbf{Solution.} On $[2\pi,3\pi]$ the function is $f(x)=\sin x$, which is continuous on the closed interval and differentiable on the open interval, so the hypotheses of the Mean Value Theorem (MVT) are satisfied. The MVT guarantees a number $c\in(2\pi,3\pi)$ such that
+    \[
+        f'(c)=\frac{f(3\pi)-f(2\pi)}{3\pi-2\pi}=\frac{\sin(3\pi)-\sin(2\pi)}{\pi}=0.
+    \]
+    Because $f'(x)=\cos x$, the equation $\cos c=0$ forces $c=\tfrac{5\pi}{2}$ (the unique solution in $(2\pi,3\pi)$). Thus the theorem tells us that the instantaneous rate of change vanishes at $c=\tfrac{5\pi}{2}$ within that interval.}
     
 \end{enumerate}
 
@@ -67,23 +76,36 @@
 \begin{enumerate}[label=(\alph*)]
     \item (4 points)
     \[ \lim_{x\to 1} \frac{x^2+1}{x-1} \]
-    
-    \vspace{4cm}
+    {\color{blue}\textbf{Solution.} The numerator approaches $1^2+1=2$ while the denominator approaches $0$. Approaching from t
+    he right, $x-1>0$ and the quotient grows without bound to $+\infty$; approaching from the left, $x-1<0$ and the quotient dive
+    rges to $-\infty$. Because the one-sided limits disagree and are infinite in magnitude, the limit does \emph{not} exist (and
+     $x=1$ is a vertical asymptote).}
     
     \item (4 points)
     \[ \lim_{x\to \infty} \frac{e^{-x}}{e^x+1} \]
-    
-    \vspace{4cm}
+    {\color{blue}\textbf{Solution.} Rewrite $e^{-x}=\dfrac{1}{e^x}$. Then
+    \[
+        \frac{e^{-x}}{e^x+1}=\frac{1}{e^x(e^x+1)}.
+    \]
+    As $x\to\infty$, the denominator tends to $\infty$, so the fraction tends to $0$. Thus the limit equals $\boxed{0}$.}
     
     \item (4 points)
     \[ \lim_{x\to \infty} \frac{2x^2-2}{-2x+\sin(x)} \]
-    
-    \vspace{4cm}
+    {\color{blue}\textbf{Solution.} Factor out $x$ from numerator and denominator:
+    \[
+        \frac{2x^2-2}{-2x+\sin x}=\frac{x\left(2x-\frac{2}{x}\right)}{x\left(-2+\frac{\sin x}{x}\right)}=\frac{2x-\frac{2}{x}}{-2+\frac{\sin x}{x}}.
+    \]
+    As $x\to\infty$, $\tfrac{2}{x}\to 0$ and $\tfrac{\sin x}{x}\to 0$, so the expression behaves like $\dfrac{2x}{-2}=-x$, wh
+    ich diverges to $-\infty$. Therefore the limit does not exist as a finite number; instead the quotient decreases without bou
+    nd and we can say it tends to $-\infty$.}
     
     \item (4 points)
     \[ \lim_{x\to 0} x^2 \cos\left(\frac{1}{x}\right) \]
-    
-    \vspace{4cm}
+    {\color{blue}\textbf{Solution.} The cosine factor always satisfies $-1\leq \cos(1/x)\leq 1$, so
+    \[
+        -x^2\leq x^2\cos\left(\frac{1}{x}\right)\leq x^2.
+    \]
+    Both bounding functions tend to $0$ as $x\to 0$, so by the Squeeze Theorem the original limit also equals $0$.}
     
 \end{enumerate}
 
@@ -95,12 +117,14 @@
 
 \begin{enumerate}[label=(\alph*)]
     \item (3 points) State the domain and range of the function $f(x)$.
-    
-    \vspace{3cm}
+    {\color{blue}\textbf{Solution.} $f(x)$ is a polynomial, and polynomials are defined for every real input, so the domain is $(-\infty,\infty)$. Moreover, the leading term $2x^3$ dominates as $|x|\to\infty$, yielding $f(x)\to -\infty$ as $x\to -\infty$ and $f(x)\to \infty$ as $x\to \infty$. Because the function is continuous and attains arbitrarily large positive and negative values, its range is also $(-\infty,\infty)$.}
 
     \item (4 points) Find $f'(x)$ and $f''(x)$.
-    
-    \vspace{4cm}
+    {\color{blue}\textbf{Solution.} Differentiate term-by-term:
+    \[
+        f'(x)=6x^2+18x+12=6(x+1)(x+2),\qquad f''(x)=12x+18=6(2x+3).
+    \]
+    These derivatives will be useful for locating critical points and inflection points later.}
     
 \end{enumerate}
 
@@ -108,12 +132,27 @@
 
 \begin{enumerate}[label=(\alph*)]\addtocounter{enumi}{2} % Continue numbering from previous page
     \item (5 points) Find the local extrema of $f(x)$.
-    
-    \vspace{5cm}
+    {\color{blue}\textbf{Solution.} Local extrema occur at critical points where $f'(x)=0$ or where $f'$ is undefined. Since $f'$
+    is a polynomial, it is defined everywhere, so we solve $6(x+1)(x+2)=0$. This gives critical points at $x=-2$ and $x=-1$. Eva
+    luating the second derivative, $f''(-2)=6(2(-2)+3)=6(-1)=-6<0$, so $f$ has a local \emph{maximum} at $x=-2$. The function val
+    ue there is
+    \[
+        f(-2)=2(-2)^3+9(-2)^2+12(-2)+1=-16+36-24+1=-3.
+    \]
+    At $x=-1$, $f''(-1)=6(2(-1)+3)=6(1)=6>0$, so $f$ has a local \emph{minimum}. The value is
+    \[
+        f(-1)=2(-1)^3+9(-1)^2+12(-1)+1=-2+9-12+1=-4.
+    \]
+    Thus the local maximum is at $(-2,-3)$ and the local minimum is at $(-1,-4)$.}
     
     \item (4 points) Find all of the values of $x$ where $f(x)$ has an inflection point.
-    
-    \vspace{4cm}
+    {\color{blue}\textbf{Solution.} Inflection points occur where $f''(x)$ changes sign, which can happen only where $f''(x)=0$.
+    Setting $6(2x+3)=0$ yields $x=-\tfrac{3}{2}$. Checking the sign of $f''$ shows it is negative for $x<-\tfrac{3}{2}$ and pos
+    itive for $x>-\tfrac{3}{2}$, confirming a sign change. The corresponding point on the curve is
+    \[
+        f\!\left(-\tfrac{3}{2}\right)=2\left(-\tfrac{3}{2}\right)^3+9\left(-\tfrac{3}{2}\right)^2+12\left(-\tfrac{3}{2}\right)+1=-\frac{27}{4}+\frac{81}{4}-18+1=-\frac{7}{2}.
+    \]
+    Therefore $f$ has a single inflection point at $\left(-\tfrac{3}{2},-\tfrac{7}{2}\right)$.}
     
 \end{enumerate}
 
@@ -121,8 +160,12 @@
 
 \begin{enumerate}[label=(\alph*)]\addtocounter{enumi}{4} % Continue numbering from previous page
     \item (5 points) Sketch a graph of $y=f(x)$ and label its extrema, inflection points, and asymptotes.
-    
-    \vspace{8cm}
+    {\color{blue}\textbf{Discussion.} The cubic has no asymptotes, but we can summarize the qualitative behavior to guide a sket
+    ch. As $x\to -\infty$, the leading term $2x^3$ drives $f(x)\to -\infty$; as $x\to\infty$, $f(x)\to\infty$. The graph passes
+     through the local maximum $(-2,-3)$, then descends through the inflection point $\big(-\tfrac{3}{2},-\tfrac{7}{2}\big)$ whe
+    re the concavity switches from down to up, continues to the local minimum $(-1,-4)$, and finally rises without bound. A corr
+    ect sketch would show a smooth cubic curve reflecting these features, with concave down behavior to the left of $x=-\tfrac{3}
+    {2}$ and concave up behavior to the right.}
     
 \end{enumerate}
 
@@ -135,12 +178,22 @@ The logistic function $R(t)$ gives the number of people at time $t$ who have hea
 
 \begin{enumerate}[label=(\alph*)]
     \item (6 points) Find the linearization of $R(t)$ at $t=0$.
-    
-    \vspace{6cm}
+    {\color{blue}\textbf{Solution.} The linearization at $t=0$ is $L(t)=R(0)+R'(0)(t-0)$. We first compute
+    \[
+        R(0)=\frac{12000}{1+e^{0}}=\frac{12000}{2}=6000.
+    \]
+    Differentiating $R(t)=12000(1+e^{-t})^{-1}$ gives
+    \[
+        R'(t)=12000\cdot\frac{e^{-t}}{(1+e^{-t})^2}.
+    \]
+    Evaluating at $t=0$ yields $R'(0)=12000\cdot\dfrac{1}{(1+1)^2}=3000$. Therefore
+    \[
+        L(t)=6000+3000t.
+    \]
+    This line approximates the rumor spread for small values of $t$ near zero.}
     
     \item (3 points) Use linear approximation at $t=0$ to estimate the number of people in the town who have heard the rumor at time $t=1$.
-    
-    \vspace{4cm}
+    {\color{blue}\textbf{Solution.} Substitute $t=1$ into the linearization: $L(1)=6000+3000(1)=9000$. Thus, using the linear approximation, approximately $9{,}000$ residents have heard the rumor one unit of time after $t=0$.}
 
 \end{enumerate}
 
@@ -151,13 +204,19 @@ The logistic function $R(t)$ gives the number of people at time $t$ who have hea
 
 \begin{enumerate}[label=(\alph*)]
     \item (5 points) Approximate the area under the curve between $x=0$ and $x=4$ by a Riemann sum of four rectangles using right endpoints.
-    
-    \vspace{5cm}
+    {\color{blue}\textbf{Solution.} Partition $[0,4]$ into four equal subintervals of width $\Delta x=1$. Using right endpoints gives sample points $x_i^*=1,2,3,4$. The Riemann sum is
+    \[
+        \sum_{i=1}^{4} f(x_i^*)\Delta x=\sum_{i=1}^4 (x_i^{*3}+x_i^*)\cdot 1=(1^3+1)+(2^3+2)+(3^3+3)+(4^3+4)=2+10+30+68=110.
+    \]
+    Thus the right-endpoint approximation is $110$ square units.}
     
     \item (4 points) Express the area under the curve as the limit of a Riemann sum.
     \textit{You do not need to evaluate the area for this part. You can leave your answer as a limit.}
-    
-    \vspace{5cm}
+    {\color{blue}\textbf{Solution.} Using $n$ subintervals of equal width $\Delta x=\frac{4}{n}$ and right endpoints $x_i^*=\frac{4i}{n}$, the area can be written as
+    \[
+        \lim_{n\to\infty}\sum_{i=1}^{n}\left[\left(\frac{4i}{n}\right)^3+\frac{4i}{n}\right]\cdot\frac{4}{n}.
+    \]
+    This limit is the definition of the definite integral of $x^3+x$ over $[0,4]$.}
     
 \end{enumerate}
 
@@ -166,12 +225,14 @@ The logistic function $R(t)$ gives the number of people at time $t$ who have hea
 \begin{enumerate}[label=(\alph*)]\addtocounter{enumi}{2} % Continue numbering from previous page
     \item (5 points) Find the exact area under the curve between $x=0$ and $x=4$.
     \textit{Hint: you do not have to use the limit from part (b); you find the area using any method covered in class.}
-    
-    \vspace{5cm}
+    {\color{blue}\textbf{Solution.} We evaluate the definite integral exactly:
+    \[
+        \int_0^4 (x^3+x)\,dx=\left[\frac{x^4}{4}+\frac{x^2}{2}\right]_0^4=\left(\frac{256}{4}+\frac{16}{2}\right)-0=64+8=72.
+    \]
+    Therefore the exact area is $72$ square units.}
     
     \item (2 points) Is the Riemann sum approximation of the area under the curve from part (a) an overestimate, an underestimate, or neither?
-    
-    \vspace{4cm}
+    {\color{blue}\textbf{Answer.} On $[0,4]$ the function $x^3+x$ is increasing, so using right endpoints makes each rectangle taller than the curve at the left edge. Consequently the right-endpoint Riemann sum overestimates the true area. This is consistent with comparing $110$ to the exact value $72$.}
     
 \end{enumerate}
 
@@ -180,7 +241,18 @@ The logistic function $R(t)$ gives the number of people at time $t$ who have hea
 % --- Question 6 ---
 \section*{6. (6 points) Evaluate}
 \[ \int \left( \frac{2}{\cos^2(t)} \sqrt{6 + \frac{\sin(t)}{\cos(t)}} + t \right) dt. \]
-
-\vspace{10cm}
+{\color{blue}\textbf{Solution.} Rewrite the integrand using trigonometric identities. Because $\dfrac{1}{\cos^2 t}=\sec^2 t$ and $\dfrac{\sin t}{\cos t}=\tan t$, the integral becomes
+\[
+    \int\left(2\sec^2 t\,\sqrt{6+\tan t}+t\right)dt.
+\]
+For the first term, let $u=6+\tan t$. Then $du=\sec^2 t\,dt$, so
+\[
+    \int 2\sec^2 t\,\sqrt{6+\tan t}\,dt=\int 2\sqrt{u}\,du=\frac{4}{3}u^{3/2}=\frac{4}{3}(6+\tan t)^{3/2}.
+\]
+The second term integrates directly to $\tfrac{t^2}{2}$. Combining the pieces and adding the constant of integration gives
+\[
+    \int \left( \frac{2}{\cos^2(t)} \sqrt{6 + \frac{\sin(t)}{\cos(t)}} + t \right) dt = \frac{4}{3}\left(6+\tan t\right)^{3/2}+\frac{t^2}{2}+C.
+\]
+This antiderivative differentiates back to the stated integrand, confirming the result.}
 
 \end{document}
