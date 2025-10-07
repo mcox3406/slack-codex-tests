@@ -1,0 +1,186 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{enumitem}
+
+% --- Header and Footer Setup ---
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[L]{Calculus I (UN1101)}
+\fancyhead[R]{Practice Final A}
+\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt} % No line at the footer to match the source
+
+% --- Document Start ---
+\begin{document}
+
+% --- Cover Page ---
+\begin{center}
+    \Large\textbf{Calculus I Practice Final A}
+\end{center}
+\vspace{1cm}
+
+\begin{itemize}
+    \item This exam contains \pageref{LastPage} pages (including this cover page) and 6 questions.
+    \item The total number of possible points is 80 points. You will have 150 minutes to complete this exam.
+    \item Print your name and UNI in the space above.
+    \item Answer the questions in the space provided on the question sheets. You may use extra paper.
+    \item Clearly identify and simplify your answers. You will not receive full credit if there are multiple apparent answers, even if one of them is correct.
+    \item Write legibly and show your work. You may receive partial credit for intermediate steps. Correct answers without any reasoning or work will not receive full credit.
+    \item No calculators, computational devices, or consulting other people during the duration of this exam. Any cheating will result in an automatic failing grade in the course and potential administrative action.
+    \item You may consult your notes and textbook for this exam. This does not include WebAssign, Courseworks, or other online resources.
+    \item Upload your exam to Gradescope via PDF or images at the end of the time allotted. At the end of the exam, you have 15 minutes to upload your exam. Any exams uploaded after the end of the upload period will not be accepted.
+    \item Remain in the Zoom call with your camera. If you need to leave your work area for any reason, please inform the instructor beforehand.
+\end{itemize}
+\newpage
+% --- Question 1 ---
+\section*{1. Consider the function}
+\[ f(x)=\begin{cases} \sin(x) & \text{if } x > \pi \\ x-\pi & \text{if } x \le \pi \end{cases} \]
+
+\begin{enumerate}[label=(\alph*)]
+    \item (4 points) Identify the real numbers at which $f(x)$ is discontinuous.
+    \textit{Hint: You should justify why $f(x)$ is discontinuous at certain values of x and why $f(x)$ is continuous everywhere else.}
+    
+    \vspace{4cm}
+    
+    \item (4 points) Identify the horizontal and vertical asymptotes of $f(x)$.
+    
+    \vspace{4cm}
+
+    \item (4 points) What does the Mean Value Theorem say about $f(x)$ on the interval $[2\pi, 3\pi]$?
+    
+    \vspace{4cm}
+    
+\end{enumerate}
+
+\newpage
+
+% --- Question 2 ---
+\section*{2. Find the limit if it exists. If the limit does not exist, explain why.}
+
+\begin{enumerate}[label=(\alph*)]
+    \item (4 points)
+    \[ \lim_{x\to 1} \frac{x^2+1}{x-1} \]
+    
+    \vspace{4cm}
+    
+    \item (4 points)
+    \[ \lim_{x\to \infty} \frac{e^{-x}}{e^x+1} \]
+    
+    \vspace{4cm}
+    
+    \item (4 points)
+    \[ \lim_{x\to \infty} \frac{2x^2-2}{-2x+\sin(x)} \]
+    
+    \vspace{4cm}
+    
+    \item (4 points)
+    \[ \lim_{x\to 0} x^2 \cos\left(\frac{1}{x}\right) \]
+    
+    \vspace{4cm}
+    
+\end{enumerate}
+
+\newpage
+
+% --- Question 3 ---
+\section*{3. Consider the function}
+\[ f(x) = 2x^3 + 9x^2 + 12x + 1. \]
+
+\begin{enumerate}[label=(\alph*)]
+    \item (3 points) State the domain and range of the function $f(x)$.
+    
+    \vspace{3cm}
+
+    \item (4 points) Find $f'(x)$ and $f''(x)$.
+    
+    \vspace{4cm}
+    
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}[label=(\alph*)]\addtocounter{enumi}{2} % Continue numbering from previous page
+    \item (5 points) Find the local extrema of $f(x)$.
+    
+    \vspace{5cm}
+    
+    \item (4 points) Find all of the values of $x$ where $f(x)$ has an inflection point.
+    
+    \vspace{4cm}
+    
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}[label=(\alph*)]\addtocounter{enumi}{4} % Continue numbering from previous page
+    \item (5 points) Sketch a graph of $y=f(x)$ and label its extrema, inflection points, and asymptotes.
+    
+    \vspace{8cm}
+    
+\end{enumerate}
+
+\newpage
+
+% --- Question 4 ---
+\section*{4. The spread of a rumor over time within a town with a population of 12000 people can be modeled by a logistic function}
+\[ R(t) = \frac{12000}{1+e^{-t}}. \]
+The logistic function $R(t)$ gives the number of people at time $t$ who have heard the rumor.
+
+\begin{enumerate}[label=(\alph*)]
+    \item (6 points) Find the linearization of $R(t)$ at $t=0$.
+    
+    \vspace{6cm}
+    
+    \item (3 points) Use linear approximation at $t=0$ to estimate the number of people in the town who have heard the rumor at time $t=1$.
+    
+    \vspace{4cm}
+
+\end{enumerate}
+
+\newpage
+
+% --- Question 5 ---
+\section*{5. Consider the curve $y=x^3+x$.}
+
+\begin{enumerate}[label=(\alph*)]
+    \item (5 points) Approximate the area under the curve between $x=0$ and $x=4$ by a Riemann sum of four rectangles using right endpoints.
+    
+    \vspace{5cm}
+    
+    \item (4 points) Express the area under the curve as the limit of a Riemann sum.
+    \textit{You do not need to evaluate the area for this part. You can leave your answer as a limit.}
+    
+    \vspace{5cm}
+    
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}[label=(\alph*)]\addtocounter{enumi}{2} % Continue numbering from previous page
+    \item (5 points) Find the exact area under the curve between $x=0$ and $x=4$.
+    \textit{Hint: you do not have to use the limit from part (b); you find the area using any method covered in class.}
+    
+    \vspace{5cm}
+    
+    \item (2 points) Is the Riemann sum approximation of the area under the curve from part (a) an overestimate, an underestimate, or neither?
+    
+    \vspace{4cm}
+    
+\end{enumerate}
+
+\newpage
+
+% --- Question 6 ---
+\section*{6. (6 points) Evaluate}
+\[ \int \left( \frac{2}{\cos^2(t)} \sqrt{6 + \frac{\sin(t)}{\cos(t)}} + t \right) dt. \]
+
+\vspace{10cm}
+
+\end{document}
